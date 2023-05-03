@@ -1,0 +1,52 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+{% block contenu %}
+<div class="container-fluid fw-bold ">
+    <div class="row mb-5">
+        <div class="col-12 col-md-6 w-75">
+            <h1 class=" mx-5 mt-3" style="border-bottom: 12px solid rgb(255,112,63);width: 12%;"> <strong>Connexion</strong></h1>
+            <div class="m-5 w-auto">
+                <form action="" method="POST" class="w-80">
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger" role="alert">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            <tag style="font-weight:575;font-size:20px;">{{ field.label_tag }}</tag>
+                            {{ field }}
+                            <style>
+                                .form-control{
+                                    width:75%;
+                                    height:60px;
+                                    box-shadow:0px 3px rgb(217,217,217);
+                                    border-radius:10px;
+
+                                }
+                            </style>
+                        </div>
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger" role="alert">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                    <div class="d-flex justify-content-center mx-auto my-5 ">
+                        <button type="submit" class="btn btn-primary font-weight-bold  w-50 " style="background-color:rgb(255,112,63);
+                        border-radius:18px;border:none;height:60px;">  Connexion  </button>
+                    </div>                   
+                </form>
+                <p style="font-weight: 500;font-size:19px;"class="m-3 text-center fw-bold ">Vous n'avez pas de compte ? <a href="utilisateur:inscrire">inscrivez-vous</a></p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 d-flex justify-content-center mt-5 ms-5">
+            <img src="{% static 'img/profil2.png' %}" alt="user_profile_2" class="">
+        </div>
+
+    </div>
+</div>
+{% endblock %}

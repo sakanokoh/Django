@@ -1,0 +1,95 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+{% block contenu %}
+<div class="container-fluid fw-bold ">
+  <form action="" method="post" class="">
+  <div class="row">
+    <div class="col-12 col-md-8 ">
+      <h2 class="mx-5 mt-3" style="border-bottom: 12px solid rgb(225,112,63); width:8%;"> <strong> Inscription </strong>
+      </h2>
+      <div class="m-5">
+        
+          {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+          <div class="alert alert-danger" role="alert">{{ error }}</div>
+          {% endfor %}
+          {% endif %}
+          {% csrf_token %}
+          <div class="container">
+            <div class="row">
+              <div class="col-6 mt-5">
+                <label class="mb-2" style="font-weight:575;font-size:20px;">{{ form.name.label }}</label>
+                {{ form.name }}
+              </div>
+              <div class="col-6 mt-5">
+                <label class="mb-2" style="font-weight:575;font-size:20px;">{{ form.username.label }}</label>
+                {{ form.username }}
+              </div>
+              <div class="col-6 mt-5">
+                <label class="mb-2" style="font-weight:575;font-size:20px;">{{ form.email.label }}</label>
+                {{ form.email }}
+
+              </div>
+              <div class="col-6 mt-5">
+                <label class="mb-2" style="font-weight:575;font-size:20px;">{{ form.phone.label }}</label>
+                {{ form.phone }}
+
+              </div>
+              <div class="col-6 mt-5">
+                <label class="mb-2" style="font-weight:575;font-size:20px;">{{ form.password1.label }}</label>
+                {{ form.password1 }}
+
+              </div>
+              <div class="col-6 mt-5">
+                <label class="mb-2" style="font-weight:575;font-size:20px;">{{ form.password2.label }}</label>
+                {{ form.password2 }}
+              </div>
+              <style>
+                .form-control{
+                    width:80%;
+                    height:80px;
+                    box-shadow:0px 3px rgb(217,217,217);
+                    border-radius:10px;}
+                ::placeholder {
+                  font-size: 20px;
+                }
+            </style>
+            </div>
+          </div>
+          
+          {% if form.errors %}
+          {% for field in form %}
+          {% if field.errors %}
+          <div class="alert alert-danger">
+            <strong>{{ field.label }}</tag>:</strong>
+            {% for error in field.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+
+        
+      </div>
+    </div>
+    <div class="col-12 col-md-4 d-flex justify-content-center mt-5 ms-5">
+      <img src="{% static 'img/profil.png' %}" alt="user_profile_2" class="w-90 h-75">
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-8"></div>
+    <div class="col-12 col-md-4 text-center ">
+      <button type="submit" class="btn btn-primary w-50 font-weight-bold" style="background-color:rgb(255,112,63);
+        border-radius:18px;border:none;height:60px;font-size:30px">  Suivant  </button>
+    </div>
+  </div>
+</form>
+  <h5 class="text-center my-3 ">Vous avez déjà un compte ? <a href="{% url 'utilisateur:login' %}"> connectez-vous</a></h5>
+
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'home.html' %}
+
+{% block contenu %}
+<div class="container-fluid fw-bold ">
+    <div class="row">
+        <div class="col-12 col-lg-7">
+            <h1 class="text-center">{{ voiture.nom }}</h1>
+            <h4 class="mx-3">
+                <ul>
+                    <li>Couleurs disponibles : {{ voiture.couleurs }}</li>
+                    <li>Prix moyen : {{ voiture.prix_moyen }}</li>
+                    <li>Consommation de carburant : {{ voiture.consommation_carburant }}</li>
+                    <li>Technologie de sécurité : {{ voiture.technologie_securite }}</li>
+                    <li>Confort de conduite : {{ voiture.confort_de_conduite }}</li>
+                    <li>Espace intérieur : {{ voiture.espace_intérieur }}</li>
+                    <li>Connectivité : {{ voiture.connectivité }}</li>
+                </ul>
+            </h4>
+           
+        </div>
+        <div class="col-12 col-lg-5">
+            <img src="{{ voiture.image.url }}" class="w-100 float-left mr-3" alt="photo">
+        </div>
+    </div>
+
+
+    <div class="row justify-content-between m-3 text-light">
+
+        <div class="col-2 col-lg-1 d-flex justify-content-start">
+            <h3 class="bg-warning border rounded-pill px-4 py-2">
+                <a href="{% url 'application:precedent' voiture.id %}" class="text-light"><i class="fa-sharp fa-solid fa-angle-left"></i></a>
+            </h3>
+            
+        </div>
+        <div class="col-5  col-lg-2 bg-warning text-center fw-bold border rounded-pill">
+            <h3 class="py-2">
+                <a href="#" class="text-light">Commander</a>
+            </h3>
+            
+        </div>
+        <div class="col-2 col-lg-1 d-flex justify-content-end">
+            <h3 class=" bg-warning border rounded-pill px-4 py-2">
+                <a href="{% url 'application:suivant' voiture.id %}" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i></a>
+            </h3>
+    
+            
+        </div>
+    </div>
+
+</div>
+
+{% endblock contenu %}

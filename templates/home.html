@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ma page</title>
+
+    <script src="https://kit.fontawesome.com/0ff5cabe57.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
+
+    <style>
+        header.header,
+        footer.footer {
+            background-color: #305981;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    {% block entete %}
+    <header class="header px-3">
+        <nav class="navbar navbar-expand-md navbar-light" >
+          <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" alt="Logo" class="img-fluid"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon white-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto"> 
+              <li class="nav-item">
+                <a class="nav-link text-white h4 ml-5" href="{% url 'accueil' %}">Accueil</a> 
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white h4 ml-5" href="{% url 'application:model' %}">Modèles</a>
+              </li>
+              <li class="nav-item mx-5">
+                <a class="nav-link text-white h4" href="{% url 'utilisateur:profile' %}">Profil</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+    {% endblock %}
+
+    <div class="corps">
+        {% block contenu %}
+        <main>
+            <div class="container-fluid">
+                <div class="row my-3">
+                    <div class="col-12 col-md-7 gx-5">
+                        <h2>
+                            Trouvez votre prochaine voiture d'occasion avec nous !
+                        </h2>
+                        <h3 class="my-3">
+                            <p>
+                                Bienvenue sur notre site de vente de voitures d'occasion en ligne ! Nous proposons une
+                                large sélection de voitures d'occasion de haute qualité à des prix compétitifs.
+                            </p>
+                            <p>
+                                Notre site propose une navigation facile et intuitive pour vous aider à trouver
+                                rapidement la voiture que vous recherchez. Nous avons une variété de marques et de
+                                modèles disponibles, et notre équipe est à votre disposition pour répondre à toutes vos
+                                questions et vous aider à trouver la voiture qui convient le mieux à vos besoins.
+                            </p>
+                        </h3>
+
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <img src="{% static 'img/image 1.png' %}" class="w-100" alt="Photo ">
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% endblock %}
+    </div>
+
+
+    {% block pied %}
+    <footer class="footer">
+        <div class="container-fluid mx-5">
+            <div class="row pt-4 pb-2">
+                <div class="col-md-3 col-6">
+                    <h4>Nos Marques</h4>
+                    <div class="mx-2">
+                        <ul class="list-unstyled ">
+                            <li><i class="fa-sharp fa-solid fa-angle-right"></i><a href="#" class="text-light"> Toyota</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> Nissan</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> Hyundai</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> Peugeot</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> Ford</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-6">
+                    <h4>A propos de Nous</h4>
+                    <div class="mx-2">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> MK automobile</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> Demande de Devis</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> Demande de rendez-vous</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> Nos offres</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-6">
+                    <h4>Après Vente</h4>
+                    <div class="mx-2">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> Entretien</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> Pièces de rechange</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> Tôlerie et peinture</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-sharp fa-solid fa-angle-right"></i> Accessoires</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-6">
+                    <h4>Suivez Nous</h4>
+                    <div class="mx-2">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-light"><i class="fa-brands fa-square-facebook"></i> Facebook</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                            <li><a href="#" class="text-light"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% endblock %}
+</body>
+
+</html>

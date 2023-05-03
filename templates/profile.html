@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+{% block contenu %}
+<div class="container-fluid fw-bold ">
+    <div class="row my-5">
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+            <img src="{% static 'img/user_profile_1.png' %}" alt="user_profile_2" class="">
+        </div>
+        <div class="col-12 col-md-6 m-auto">
+            <h1 class="text-start mb-5 mx-5"> <strong> {{ profil.name }} </strong></h1>
+            <h4>
+                <ul>
+                    <li class="my-3">Nom d'utilisateur: {{ profil.username }} </li>
+                    <li class="my-3"> Email: {{ profil.email }}</li>
+                    <li class="my-3"> Numéro de téléphone: {{ profil.phone }}</li>
+                    <li class="my-3">Adresse: {{ profil.address }}</li>
+                    <li class="my-3">Ville: {{ profil.city }}</li>
+                    <li class="my-3">Code postal: {{ profil.postal }}</li>
+                    <li class="my-3">Pays: {{ profil.country }}</li>
+                </ul>
+            </h4>
+        </div>
+    </div>
+</div>
+{% endblock %}
